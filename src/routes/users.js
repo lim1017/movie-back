@@ -31,6 +31,26 @@ module.exports = db => {
       response.json(results);
     });
   });
+
+
+  router.patch("/users/:userID", (request, response) => {
+
+    const userID = request.params.userID
+
+    const {nominations} = request.body
+
+    db.query(
+      `
+      UPDATE users
+      SET
+      nominations = $1,
+  
+      WHERE user_id= $2
+    `, [nominations, userID]
+    ).then(({ rows: results }) => {
+      response.json(results);
+    });
+  });
   
 
   return router;
