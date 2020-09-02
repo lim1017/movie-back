@@ -43,13 +43,12 @@ module.exports = db => {
 
 
   router.get("/users/:username", (request, response) => {
-    if (process.env.TEST_ERROR) {
-      setTimeout(() => response.status(500).json({}), 1000);
-      return;
-    }
+    // if (process.env.TEST_ERROR) {
+    //   setTimeout(() => response.status(500).json({}), 1000);
+    //   return;
+    // }
 
     const username=request.params.username
-
     db.query(
       `
       SELECT * FROM users
