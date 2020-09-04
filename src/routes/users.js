@@ -68,9 +68,6 @@ module.exports = db => {
     const userID = request.params.userID
     const {nominations} = request.body
 
-    console.log(userID)
-    console.log(nominations)
-
     db.query(
       `
       UPDATE users
